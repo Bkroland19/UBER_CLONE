@@ -8,16 +8,26 @@ import { Provider } from "react-redux";
 import React from "react";
 import { store } from "./store";
 import HomeScreen from "./screens/HomeScreen";
-
+import MapScreen  from "./screens/MapScreen";
 export default function App() {
 	const Stack = createStackNavigator();
 	return (
 		<Provider store={store}>
 			<NavigationContainer>
-				<Stack.Navigator>
-					<Stack.Screen name="HomeScreen" component={HomeScreen} />
-				</Stack.Navigator>
-				<SafeAreaProvider></SafeAreaProvider>
+				<SafeAreaProvider>
+					<Stack.Navigator>
+						<Stack.Screen
+							name="HomeScreen"
+							component={HomeScreen}
+							options={{ headerShown: false }}
+						/>
+						<Stack.Screen
+							name="MapScreen"
+							component={MapScreen}
+							options={{ headerShown: false }}
+						/>
+					</Stack.Navigator>
+				</SafeAreaProvider>
 			</NavigationContainer>
 		</Provider>
 	);
